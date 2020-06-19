@@ -1,11 +1,11 @@
 import React from 'react';
 
-const FeedbackOptions = ({handleClickGoodReviews, handleClickNeutralReviews, handleClickBadReviews}) => {
+const FeedbackOptions = ({onLeaveFeedback}) => {
   return (
     <>
-    <button type = "button" onClick ={handleClickGoodReviews}>Good</button>
-    <button type = "button" onClick ={handleClickNeutralReviews}>Neutral</button>
-    <button type = "button" onClick ={handleClickBadReviews}>Bad</button>
+    <button type = "button" onClick ={()=>onLeaveFeedback('good')}>Good</button>
+    <button type = "button" onClick ={()=>onLeaveFeedback('neutral')}>Neutral</button>
+    <button type = "button" onClick ={()=>onLeaveFeedback('bad')}>Bad</button>
     </>
   )
 }

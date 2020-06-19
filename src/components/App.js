@@ -14,20 +14,8 @@ class App extends Component {
     positivePercentage: 0,
   };
 
-  handleClickGoodReviews = () => {
-    this.setState (state => ({good: state.good + 1}));
-    this.countTotalFeedback ();
-    this.countPositiveFeedbackPercentage ();
-  };
-
-  handleClickNeutralReviews = () => {
-    this.setState (state => ({neutral: state.neutral + 1}));
-    this.countTotalFeedback ();
-    this.countPositiveFeedbackPercentage ();
-  };
-
-  handleClickBadReviews = () => {
-    this.setState (state => ({bad: state.bad + 1}));
+  onLeaveFeedback = (name) => {
+    this.setState (state => ({[name]: state[name] + 1}));
     this.countTotalFeedback ();
     this.countPositiveFeedbackPercentage ();
   };
@@ -50,9 +38,7 @@ class App extends Component {
       <div>
         <Section title="Please leave feedback">
           <FeedbackOptions
-            handleClickGoodReviews={this.handleClickGoodReviews}
-            handleClickNeutralReviews={this.handleClickNeutralReviews}
-            handleClickBadReviews={this.handleClickBadReviews}
+            onLeaveFeedback={this.onLeaveFeedback}
           />
         </Section>
         <Section title="Statistics">
