@@ -14,21 +14,22 @@ class App extends Component {
     positivePercentage: 0,
   };
 
-  onLeaveFeedback = (name) => {
-    this.setState (state => ({[name]: state[name] + 1}));
+  onLeaveFeedback = ({target}) => {
+    const name = target.dataset.name;
+    this.setState (prevState => ({[name]: prevState[name] + 1}));
     this.countTotalFeedback ();
     this.countPositiveFeedbackPercentage ();
   };
 
   countTotalFeedback = () => {
-    this.setState (state => ({
-      total: state.total + 1,
+    this.setState (prevState => ({
+      total: prevState.total + 1,
     }));
   };
 
   countPositiveFeedbackPercentage = () => {
-    this.setState (state => ({
-      positivePercentage: Math.round (state.good / state.total * 100),
+    this.setState (prevState => ({
+      positivePercentage: Math.round (prevState.good / prevState.total * 100),
     }));
   };
 
