@@ -35,6 +35,7 @@ class App extends Component {
 
   render () {
     const {good, neutral, bad, total, positivePercentage} = this.state;
+    const isShowStatistic = this.state.total > 0;
     return (
       <div>
         <Section title="Please leave feedback">
@@ -43,7 +44,7 @@ class App extends Component {
           />
         </Section>
         <Section title="Statistics">
-          {this.state.total > 0
+          {isShowStatistic
             ? <Statistics
                 good={good}
                 neutral={neutral}
